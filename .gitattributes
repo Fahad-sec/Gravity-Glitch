@@ -1,0 +1,7 @@
+*.shader linguist-vendored
+*.cginc linguist-vendored
+*.compute linguist-vendored
+*.hlsl linguist-vendored
+
+Assets/Plugins/* linguist-vendored
+*.cs linguist-detectable=true
