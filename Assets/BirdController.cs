@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class BirdController : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -17,7 +18,10 @@ public class BirdController : MonoBehaviour
     {
         Debug.Log("Collision detected with: " + collision.gameObject.name);
         rb.simulated = false;
-        Time.timeScale = 0f;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+
 
     }
+
+    
 }
