@@ -8,6 +8,7 @@ public class PipeSpawner : MonoBehaviour
     public float spawnRate = 2f;
     public float heightOffset = 1f;
     private float timer = 0;
+    public LogicManager logic;
 
     void Update()
     {

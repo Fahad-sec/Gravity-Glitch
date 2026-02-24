@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+
 public class BirdController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float flapStrength = 10f;
+    public LogicManager logic;
 
     void Update()
     {
@@ -18,8 +20,7 @@ public class BirdController : MonoBehaviour
     {
         Debug.Log("Collision detected with: " + collision.gameObject.name);
         rb.simulated = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-
+        logic.gameOver();
 
     }
 
