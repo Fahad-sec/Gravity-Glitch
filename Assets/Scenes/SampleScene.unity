@@ -6369,7 +6369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PipeSpawner
   pipePrefab: {fileID: 5407354028739360006, guid: 19d18e27e3169194680335284887b931, type: 3}
   spawnRate: 5
-  heightOffset: 1
+  heightOffset: 5
   logic: {fileID: 0}
 --- !u!4 &1685331800
 Transform:
