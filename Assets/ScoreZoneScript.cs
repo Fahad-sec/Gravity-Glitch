@@ -16,7 +16,7 @@ public class ScoreZoneScript : MonoBehaviour
         Debug.Log("score zone hit");
         if (collision.gameObject.name == "PlayerShip")
         {
-            logic.addScore(1);
+            logic.AddScore(1);
         }
     }
 }

@@ -6506,7 +6506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1793159255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6612,7 +6612,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 156537939}
         m_TargetAssemblyTypeName: LogicManager, Assembly-CSharp
-        m_MethodName: restartGame
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 public class LogicManager : MonoBehaviour
 {
     public int playerScore;
@@ -10,36 +11,51 @@ public class LogicManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public GameObject MainMenu;
     public GameObject gameOverScreen;
+    public static bool isRestarting = false;
 
 
    public  void PlayGame()
     {
+        isRestarting
+        = true;
         MainMenu.SetActive(false);
         Time.timeScale = 1f;    
     }
     void Start()
+
     {
+        if (!isRestarting)
+        {
+            MainMenu.SetActive(true);
+            Time.timeScale = 0F;
+
+        }else
+        {
+            MainMenu.SetActive (false);
+            Time.timeScale = 1f;
+        }
         highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
 
     }
 
     [ContextMenu("Increase Score")]
-    public void addScore(int scoreToAdd)
+    public void AddScore(int scoreToAdd)
     {
         playerScore+= scoreToAdd;
         scoreText.text = "Score: " + playerScore.ToString();
     }
 
-    public void gameOver()
+    public void GameOver()
     {
         gameOverScreen.SetActive(true);
         Time.timeScale = 0f; 
         CheckingHighScore();
     }
 
-    public void restartGame()
+    public void RestartGame()
 
     {
+        isRestarting = true;
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -62,8 +78,4 @@ public class LogicManager : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
-        Time.timeScale = 0f;
-    }
 }

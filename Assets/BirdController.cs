@@ -20,7 +20,7 @@ public class BirdController : MonoBehaviour
     {
         Debug.Log("Collision detected with: " + collision.gameObject.name);
         rb.simulated = false;
-        logic.gameOver();
+        logic.GameOver();
 
     }
 
