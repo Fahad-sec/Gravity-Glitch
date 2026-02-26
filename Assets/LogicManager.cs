@@ -8,10 +8,19 @@ public class LogicManager : MonoBehaviour
     public int playerScore;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
+    public GameObject MainMenu;
+    public GameObject gameOverScreen;
 
+
+   public  void PlayGame()
+    {
+        MainMenu.SetActive(false);
+        Time.timeScale = 1f;    
+    }
     void Start()
     {
         highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
+
     }
 
     [ContextMenu("Increase Score")]
@@ -21,7 +30,6 @@ public class LogicManager : MonoBehaviour
         scoreText.text = "Score: " + playerScore.ToString();
     }
 
-    public GameObject gameOverScreen;
     public void gameOver()
     {
         gameOverScreen.SetActive(true);
@@ -52,5 +60,10 @@ public class LogicManager : MonoBehaviour
             Application.Quit();
             Debug.Log("Exiting Game...");
         }
+    }
+
+    void Awake()
+    {
+        Time.timeScale = 0f;
     }
 }
