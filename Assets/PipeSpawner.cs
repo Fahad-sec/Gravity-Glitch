@@ -1,10 +1,9 @@
-using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PipeSpawner : MonoBehaviour
 {
-   public GameObject pipePrefab;
+    public GameObject pipePrefab;
     public float spawnRate = 2f;
     public float heightOffset = 10;
     private float timer = 0;
@@ -21,19 +20,23 @@ public class PipeSpawner : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-        }else
+        }
+        else
         {
             SpawnPipe();
             timer = 0;
 
         }
     }
-
+    public float lowestVisiblePoint = -7;
+    public float highestVisiblePoint = 7;
     void SpawnPipe()
     {
-        float lowestPoint = transform.position.y - heightOffset;
-        float highestPoint = transform.position.y + heightOffset;
-        Vector2 RandomPos = new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0);
-        Instantiate(pipePrefab, RandomPos, transform.rotation);
+        float randomY = Random.Range(transform.position.y - heightOffset, transform.position.y + heightOffset);
+        float cappedY = Mathf.Clamp(randomY, lowestVisiblePoint, highestVisiblePoint);
+
+
+        Vector2 spawnPos = new Vector3(transform.position.x, cappedY, 0);
+        Instantiate(pipePrefab, spawnPos, transform.rotation);
     }
 }
