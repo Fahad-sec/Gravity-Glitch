@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class pipeBehaviour : MonoBehaviour
+public class ObstacleBehaviour : MonoBehaviour
 {
-    public float moveSpeed = 2f;
-    public float deadZone = -15f;
+    public static float moveSpeed = 2f;
+    public static float deadZone = -15f;
 
     void Update()
     {

@@ -1,11 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PipeSpawner : MonoBehaviour
+public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject pipePrefab;
-    public float spawnRate = 2f;
-    public float heightOffset = 10;
+    public  float spawnRate = 5f;
+    public float heightOffset = 3;
     private float timer = 0;
     public LogicManager logic;
 
