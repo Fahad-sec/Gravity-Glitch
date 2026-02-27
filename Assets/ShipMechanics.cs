@@ -5,14 +5,20 @@ using UnityEngine.SceneManagement;
 public class BirdController : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float flapStrength = 10f;
+    public float thrustStrength = 5f;
     public LogicManager logic;
 
+    bool isThrusting = false;
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame || Pointer.current.press.wasPressedThisFrame)
+        isThrusting = Keyboard.current.spaceKey.isPressed || Pointer.current.press.isPressed;
+        
+    }
+    private void FixedUpdate()
+    {
+        if (isThrusting)
         {
-            rb.linearVelocity = Vector2.up * flapStrength;
+            rb.linearVelocity = Vector2.up * thrustStrength;
         }
     }
 

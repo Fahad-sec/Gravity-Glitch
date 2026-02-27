@@ -12,9 +12,10 @@ public class LogicManager : MonoBehaviour
     public GameObject MainMenu;
     public GameObject gameOverScreen;
     public static bool isRestarting = false;
+    public ScreenShake screenShake;
 
 
-   public  void PlayGame()
+    public  void PlayGame()
     {
         isRestarting
         = true;
@@ -47,6 +48,7 @@ public class LogicManager : MonoBehaviour
 
     public void GameOver()
     {
+        StartCoroutine(screenShake.Shake(0.3f, 0.5f));
         gameOverScreen.SetActive(true);
         Time.timeScale = 0f; 
         CheckingHighScore();
