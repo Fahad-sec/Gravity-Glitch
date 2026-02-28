@@ -172,9 +172,9 @@ MonoBehaviour:
   spawner: {fileID: 1685331799}
   sfxSource: {fileID: 156537941}
   sfx_score: {fileID: 8300000, guid: c1613ca312e882f4c9bb02137143fbff, type: 3}
-  sfx_crash: {fileID: 8300000, guid: 7c1611f6d8f66104c93a431c2e084c06, type: 3}
-  sfx_click: {fileID: 8300000, guid: 03502ad08c3e8c149a6ed2afe4556ec3, type: 3}
-  sfx_lvl: {fileID: 8300000, guid: 2e94b1e808538e94d8773d1dd2a3b9fe, type: 3}
+  sfx_crash: {fileID: 8300000, guid: 73e2f4bafcc8709479f565cb84447a6e, type: 3}
+  sfx_click: {fileID: 8300000, guid: 20965d66560933846954e98b99a81136, type: 3}
+  sfx_lvl: {fileID: 8300000, guid: 8c581e971f35e1a479fc5d7394643a8e, type: 3}
   shipEngine: {fileID: 1066649549}
   sfx_music: {fileID: 1066649549}
 --- !u!4 &156537940
@@ -1100,7 +1100,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: da1707748e0fd1a4096fc9bb2e3985be, type: 3}
+  m_Resource: {fileID: 8300000, guid: 867fcaed5bb53264eaccfba845832635, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
