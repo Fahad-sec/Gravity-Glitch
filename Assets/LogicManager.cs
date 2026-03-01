@@ -37,15 +37,18 @@ public class LogicManager : MonoBehaviour
         isRestarting
         = true;
         MainMenu.SetActive(false);
-        Time.timeScale = 1f;    
+        Time.timeScale = 1f;
+        ShowGameUi();
     }
     void Start()
 
     {
+
         if (!isRestarting)
         {
             MainMenu.SetActive(true);
             Time.timeScale = 0F;
+            HideGameUi();
 
         }else
         {
@@ -92,6 +95,26 @@ public class LogicManager : MonoBehaviour
 
         }
     }
+    public bool isMuted = false;
+    public void ToggleMute()
+        {
+            isMuted = !isMuted;
+            AudioListener.pause = isMuted;
+    }
+    public bool isPaused = false;
+    public void PauseGame()
+        {
+        if (!isPaused)
+        {
+            Time.timeScale = 0f;
+            isPaused = true;
+        }
+        else
+        {
+            isPaused = false;
+            Time.timeScale = 1f;
+        }
+    }
 
 
 
@@ -133,4 +156,13 @@ public class LogicManager : MonoBehaviour
         }
     }
 
+
+    public GameObject InGameUi;
+    public void ShowGameUi()
+    {
+        InGameUi.SetActive(true);
+
+    }
+
+    public void HideGameUi() { InGameUi.SetActive(false); }
 }
