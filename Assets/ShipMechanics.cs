@@ -12,9 +12,15 @@ public class BirdController : MonoBehaviour
     bool isThrusting = false;
     void Update()
     {
-        bool isOverUI = EventSystem.current.IsPointerOverGameObject() || (Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId));
-        isThrusting = Keyboard.current.spaceKey.isPressed || Pointer.current.press.isPressed || Input.GetMouseButton(0) && !isOverUI;
-        
+        bool isOverUI = false;
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            isOverUI = true;
+        }
+
+        bool screenPressed = Pointer.current != null && Pointer.current.press.isPressed;
+        bool spacePressed = Keyboard.current != null && Keyboard.current.spaceKey.isPressed;
+        isThrusting = (screenPressed || spacePressed) && !isOverUI;
     }
     private void FixedUpdate()
     {
