@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +12,8 @@ public class BirdController : MonoBehaviour
     bool isThrusting = false;
     void Update()
     {
-        isThrusting = Keyboard.current.spaceKey.isPressed || Pointer.current.press.isPressed;
+        bool isOverUI = EventSystem.current.IsPointerOverGameObject() || (Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId));
+        isThrusting = Keyboard.current.spaceKey.isPressed || Pointer.current.press.isPressed || Input.GetMouseButton(0) && !isOverUI;
         
     }
     private void FixedUpdate()

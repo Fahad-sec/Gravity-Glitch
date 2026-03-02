@@ -30,6 +30,9 @@ public class LogicManager : MonoBehaviour
     [Header("Music")]
     public AudioSource sfx_music;
 
+    public TextMeshProUGUI pauseText;
+    public TextMeshProUGUI muteText;
+
 
     public  void PlayGame()
     {
@@ -50,8 +53,10 @@ public class LogicManager : MonoBehaviour
             Time.timeScale = 0F;
             HideGameUi();
 
-        }else
+        }
+        else
         {
+            ShowGameUi();
             MainMenu.SetActive (false);
             Time.timeScale = 1f;
         }
@@ -100,6 +105,7 @@ public class LogicManager : MonoBehaviour
         {
             isMuted = !isMuted;
             AudioListener.pause = isMuted;
+            muteText.text = isMuted ? "((" : "X";
     }
     public bool isPaused = false;
     public void PauseGame()
@@ -108,11 +114,13 @@ public class LogicManager : MonoBehaviour
         {
             Time.timeScale = 0f;
             isPaused = true;
+            pauseText.text = ">";
         }
         else
         {
             isPaused = false;
             Time.timeScale = 1f;
+            pauseText.text = "||";
         }
     }
 
@@ -132,6 +140,8 @@ public class LogicManager : MonoBehaviour
     public void RestartGame()
 
     {
+        ShowGameUi();
+
         ObstacleBehaviour.moveSpeed = 2f;
         isRestarting = true;
         Time.timeScale = 1f;
