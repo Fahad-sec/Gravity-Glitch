@@ -13,7 +13,6 @@ public class ScoreZoneScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("score zone hit");
         if (collision.gameObject.name == "PlayerShip")
         {
             logic.AddScore(1);

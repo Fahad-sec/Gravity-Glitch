@@ -33,6 +33,8 @@ public class LogicManager : MonoBehaviour
     public TextMeshProUGUI pauseText;
     public TextMeshProUGUI muteText;
 
+    public GameObject pauseMenu;
+
 
     public  void PlayGame()
     {
@@ -44,8 +46,8 @@ public class LogicManager : MonoBehaviour
         ShowGameUi();
     }
     void Start()
-
     {
+        Application.targetFrameRate = 60;
 
         if (!isRestarting)
         {
@@ -115,12 +117,14 @@ public class LogicManager : MonoBehaviour
             Time.timeScale = 0f;
             isPaused = true;
             pauseText.text = ">";
+            pauseMenu.SetActive(true);
         }
         else
         {
             isPaused = false;
             Time.timeScale = 1f;
             pauseText.text = "||";
+            pauseMenu.SetActive(false);
         }
     }
 
@@ -162,7 +166,6 @@ public class LogicManager : MonoBehaviour
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             Application.Quit();
-            Debug.Log("Exiting Game...");
         }
     }
 
